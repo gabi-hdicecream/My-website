@@ -9,274 +9,302 @@
       margin: 0;
       padding: 0;
     }
-/* Remove the extra "tapestry band" space entirely */
-.hd-header .tapestry {
-  display: none;
-  height: 0;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  background: transparent;
-}
 
-.hd-header .tapestry-inner {
-  display: none;
-  height: 0;
-  min-height: 0;
-  padding: 0;
-  margin: 0;
-}
+    /* Remove the extra "tapestry band" space entirely */
+    .hd-header .tapestry {
+      display: none;
+      height: 0;
+      min-height: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+    }
 
-/* Desktop layout: logo left, menu right (to the left of language switch) */
-.hd-header .bar {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
+    .hd-header .tapestry-inner {
+      display: none;
+      height: 0;
+      min-height: 0;
+      padding: 0;
+      margin: 0;
+    }
 
-.hd-header .logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 0 0 auto;
-}
+    /* Desktop layout: logo left, menu right */
+    .hd-header .bar {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
 
-.hd-header .logo a {
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
+    .hd-header .logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 0 0 auto;
+    }
 
-.hd-header .logo img {
-  height: 52px;
-  width: auto;
-  display: block;
-}
+    .hd-header .logo a {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
 
-.hd-nav {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex: 1 1 auto;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-}
+    .hd-header .logo img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
 
-.hd-nav a {
-  text-decoration: none;
-  color: var(--hd-burgundy);
-  font-weight: 900;
-  font-size: 13px;
-  letter-spacing: 0.02em;
-  padding: 10px 12px;
-  border-radius: 14px;
-  line-height: 1;
-  white-space: nowrap;
-}
+    .hd-nav {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
 
-.hd-nav a:hover,
-.hd-nav a:focus {
-  outline: none;
-  background: rgba(249, 230, 195, 0.65);
-}
+    .hd-nav a {
+      text-decoration: none;
+      color: var(--hd-burgundy);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+      padding: 10px 12px;
+      border-radius: 14px;
+      line-height: 1;
+      white-space: nowrap;
+    }
 
-.hd-right {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  flex: 0 0 auto;
-}
+    .hd-nav a:hover,
+    .hd-nav a:focus {
+      outline: none;
+      background: rgba(249, 230, 195, 0.65);
+    }
 
-.lang-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  border: 1px solid rgba(101, 11, 50, 0.18);
-  border-radius: 999px;
-  padding: 6px;
-  background: var(--hd-white);
-}
+    .hd-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
 
-.lang-switch a {
-  text-decoration: none;
-  font-weight: 900;
-  font-size: 12px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  color: var(--hd-burgundy);
-  line-height: 1;
-}
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(101, 11, 50, 0.18);
+      border-radius: 999px;
+      padding: 6px;
+      background: var(--hd-white);
+    }
 
-.lang-switch a:hover,
-.lang-switch a:focus {
-  outline: none;
-  background: rgba(249, 230, 195, 0.65);
-}
+    .lang-switch a {
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--hd-burgundy);
+      line-height: 1;
+    }
 
-.lang-switch a.is-active {
-  background: var(--hd-burgundy);
-  color: var(--hd-white);
-}
+    .lang-switch a:hover,
+    .lang-switch a:focus {
+      outline: none;
+      background: rgba(249, 230, 195, 0.65);
+    }
 
-/* Mobile: logo left, hamburger right */
-.hd-mobile {
-  display: none;
-}
+    .lang-switch a.is-active {
+      background: var(--hd-burgundy);
+      color: var(--hd-white);
+    }
 
-.hd-mobile-toggle {
-  display: none;
-}
+    /* Mobile: logo left, hamburger right */
+    .hd-mobile {
+      display: none;
+    }
 
-.hd-burger {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  border: 1px solid rgba(101, 11, 50, 0.18);
-  background: var(--hd-white);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    .hd-mobile-toggle {
+      display: none;
+    }
 
-.hd-burger span {
-  width: 18px;
-  height: 2px;
-  background: var(--hd-burgundy);
-  display: block;
-  position: relative;
-}
+    .hd-burger {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(101, 11, 50, 0.18);
+      background: var(--hd-white);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.hd-burger span::before,
-.hd-burger span::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 18px;
-  height: 2px;
-  background: var(--hd-burgundy);
-}
+    .hd-burger span {
+      width: 18px;
+      height: 2px;
+      background: var(--hd-burgundy);
+      display: block;
+      position: relative;
+    }
 
-.hd-burger span::before { top: -6px; }
-.hd-burger span::after { top: 6px; }
+    .hd-burger span::before,
+    .hd-burger span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--hd-burgundy);
+    }
 
-.hd-mobile-panel {
-  display: none;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  background: var(--hd-white);
-}
+    .hd-burger span::before { top: -6px; }
+    .hd-burger span::after { top: 6px; }
 
-.hd-mobile-panel .inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 12px 20px 18px;
-}
+    .hd-mobile-panel {
+      display: none;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      background: var(--hd-white);
+    }
 
-.hd-mobile-panel nav {
-  display: grid;
-  gap: 8px;
-}
+    .hd-mobile-panel .inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 12px 20px 18px;
+    }
 
-.hd-mobile-panel a {
-  text-decoration: none;
-  color: var(--hd-burgundy);
-  font-weight: 900;
-  padding: 12px 12px;
-  border-radius: 14px;
-  background: rgba(249, 230, 195, 0.35);
-}
+    .hd-mobile-panel nav {
+      display: grid;
+      gap: 8px;
+    }
 
-.hd-mobile-panel a:hover,
-.hd-mobile-panel a:focus {
-  outline: none;
-  background: rgba(249, 230, 195, 0.65);
-}
+    .hd-mobile-panel a {
+      text-decoration: none;
+      color: var(--hd-burgundy);
+      font-weight: 900;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(249, 230, 195, 0.35);
+    }
 
-.hd-mobile-panel .lang-row {
-  margin-top: 12px;
-  display: flex;
-  justify-content: flex-start;
-}
+    .hd-mobile-panel a:hover,
+    .hd-mobile-panel a:focus {
+      outline: none;
+      background: rgba(249, 230, 195, 0.65);
+    }
 
-.hd-mobile-toggle:checked ~ .hd-mobile-panel {
-  display: block;
-}
+    .hd-mobile-panel .lang-row {
+      margin-top: 12px;
+      display: flex;
+      justify-content: flex-start;
+    }
 
-/* Desktop dropdown for Locations */
-.hd-nav .has-sub {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
+    .hd-mobile-toggle:checked ~ .hd-mobile-panel {
+      display: block;
+    }
 
-.hd-nav .has-sub > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
+    /* Desktop dropdown for Locations */
+    .hd-nav .has-sub {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
 
-.hd-nav .caret {
-  font-size: 10px;
-  line-height: 1;
-  opacity: 0.85;
-}
+    .hd-nav .has-sub > a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
-.hd-nav .submenu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 220px;
-  background: var(--hd-white);
-  border: 1px solid rgba(0,0,0,0.10);
-  border-radius: 14px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-  padding: 8px;
-  display: none;
-  z-index: 9999;
-}
+    .hd-nav .caret {
+      font-size: 10px;
+      line-height: 1;
+      opacity: 0.85;
+    }
 
-.hd-nav .submenu a {
-  display: block;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-weight: 900;
-  color: var(--hd-burgundy);
-  background: rgba(249, 230, 195, 0.20);
-}
+    .hd-nav .submenu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      min-width: 220px;
+      background: var(--hd-white);
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 14px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      padding: 8px;
+      display: none;
+      z-index: 9999;
+    }
 
-.hd-nav .submenu a:hover,
-.hd-nav .submenu a:focus {
-  background: rgba(249, 230, 195, 0.65);
-  outline: none;
-}
+    .hd-nav .submenu a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 900;
+      color: var(--hd-burgundy);
+      background: rgba(249, 230, 195, 0.20);
+    }
 
-.hd-nav .has-sub:hover .submenu,
-.hd-nav .has-sub:focus-within .submenu {
-  display: block;
-}
+    .hd-nav .submenu a:hover,
+    .hd-nav .submenu a:focus {
+      background: rgba(249, 230, 195, 0.65);
+      outline: none;
+    }
 
-@media (max-width: 960px) {
-  .hd-nav,
-  .hd-right {
-    display: none;
-  }
+    .hd-nav .has-sub:hover .submenu,
+    .hd-nav .has-sub:focus-within .submenu {
+      display: block;
+    }
 
-  .hd-mobile {
-    display: inline-flex;
-  }
+    /* ------------------------------------------------------------------ */
+    /* TEMP: Disable header nav links (do not delete) */
+    .hd-nav a.is-disabled,
+    .hd-nav .submenu a.is-disabled,
+    .hd-mobile-panel a.is-disabled {
+      pointer-events: none;
+      cursor: not-allowed;
+      opacity: 0.45;
+      background: transparent;
+    }
 
-  .hd-header .bar {
-    justify-content: space-between;
-  }
+    .hd-nav a.is-disabled:hover,
+    .hd-nav a.is-disabled:focus,
+    .hd-nav .submenu a.is-disabled:hover,
+    .hd-nav .submenu a.is-disabled:focus,
+    .hd-mobile-panel a.is-disabled:hover,
+    .hd-mobile-panel a.is-disabled:focus {
+      background: transparent;
+      outline: none;
+    }
 
-  .hd-header .logo img {
-    height: 48px;
-  }
-}
+    /* TEMP: Hide language switch (do not delete) */
+    .lang-switch,
+    .hd-right {
+      display: none !important;
+    }
+
+    @media (max-width: 960px) {
+      .hd-nav,
+      .hd-right {
+        display: none;
+      }
+
+      .hd-mobile {
+        display: inline-flex;
+      }
+
+      .hd-header .bar {
+        justify-content: space-between;
+      }
+
+      .hd-header .logo img {
+        height: 48px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -284,68 +312,69 @@
     <div class="tapestry" aria-hidden="true">
       <div class="tapestry-inner"></div>
     </div>
-<div class="bar">
-  <div class="logo">
-    <a href="/" aria-label="Home">
-      <img src="/assets/images/hd_logo_transparent.png" alt="Haagen-Dazs">
-    </a>
-  </div>
 
-  <nav class="hd-nav" aria-label="Primary navigation">
-    <a href="/">HOME</a>
+    <div class="bar">
+      <div class="logo">
+        <a href="/" aria-label="Home">
+          <img src="/assets/images/hd_logo_transparent.png" alt="Haagen-Dazs">
+        </a>
+      </div>
 
-    <div class="has-sub">
-      <a href="#locations" aria-haspopup="true" aria-expanded="false">
-        LOCATIONS <span class="caret">&#9662;</span>
-      </a>
-      <div class="submenu" role="menu" aria-label="Locations submenu">
-        <a href="/north-miami" role="menuitem">NORTH MIAMI</a>
-        <a href="/north-beach" role="menuitem">NORTH BEACH</a>
+      <nav class="hd-nav" aria-label="Primary navigation">
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">HOME</a>
+
+        <div class="has-sub">
+          <a class="is-disabled" href="#" aria-haspopup="true" aria-expanded="false" aria-disabled="true" tabindex="-1">
+            LOCATIONS <span class="caret">&#9662;</span>
+          </a>
+          <div class="submenu" role="menu" aria-label="Locations submenu">
+            <a class="is-disabled" href="#" role="menuitem" aria-disabled="true" tabindex="-1">NORTH MIAMI</a>
+            <a class="is-disabled" href="#" role="menuitem" aria-disabled="true" tabindex="-1">NORTH BEACH</a>
+          </div>
+        </div>
+
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">MENU</a>
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">CAKES</a>
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">REVIEWS</a>
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">ABOUT US</a>
+        <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">CONTACT</a>
+      </nav>
+
+      <div class="hd-right">
+        <div class="lang-switch" aria-label="Language switch">
+          <a class="is-active" href="/">EN</a>
+          <a href="/es/" lang="es">ES</a>
+        </div>
+      </div>
+
+      <label class="hd-mobile" for="hdMobileToggle" aria-label="Open menu">
+        <span class="hd-burger"><span></span></span>
+      </label>
+    </div>
+
+    <input class="hd-mobile-toggle" type="checkbox" id="hdMobileToggle" aria-hidden="true">
+
+    <div class="hd-mobile-panel" aria-label="Mobile menu">
+      <div class="inner">
+        <nav aria-label="Mobile navigation">
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">HOME</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">NORTH MIAMI</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">NORTH BEACH</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">MENU</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">CAKES</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">REVIEWS</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">ABOUT US</a>
+          <a class="is-disabled" href="#" aria-disabled="true" tabindex="-1">CONTACT</a>
+        </nav>
+
+        <div class="lang-row">
+          <div class="lang-switch" aria-label="Language switch">
+            <a class="is-active" href="/">EN</a>
+            <a href="/es/" lang="es">ES</a>
+          </div>
+        </div>
       </div>
     </div>
-
-    <a href="/menu">MENU</a>
-    <a href="/cakes">CAKES</a>
-    <a href="/reviews">REVIEWS</a>
-    <a href="/about-us">ABOUT US</a>
-    <a href="/contact">CONTACT</a>
-  </nav>
-
-  <div class="hd-right">
-    <div class="lang-switch" aria-label="Language switch">
-      <a class="is-active" href="/">EN</a>
-      <a href="/es/" lang="es">ES</a>
-    </div>
-  </div>
-
-  <label class="hd-mobile" for="hdMobileToggle" aria-label="Open menu">
-    <span class="hd-burger"><span></span></span>
-  </label>
-</div>
-
-<input class="hd-mobile-toggle" type="checkbox" id="hdMobileToggle" aria-hidden="true">
-
-<div class="hd-mobile-panel" aria-label="Mobile menu">
-  <div class="inner">
-    <nav aria-label="Mobile navigation">
-      <a href="/">HOME</a>
-      <a href="/north-miami">NORTH MIAMI</a>
-      <a href="/north-beach">NORTH BEACH</a>
-      <a href="/menu">MENU</a>
-      <a href="/cakes">CAKES</a>
-      <a href="/reviews">REVIEWS</a>
-      <a href="/about-us">ABOUT US</a>
-      <a href="/contact">CONTACT</a>
-    </nav>
-
-    <div class="lang-row">
-      <div class="lang-switch" aria-label="Language switch">
-        <a class="is-active" href="/">EN</a>
-        <a href="/es/" lang="es">ES</a>
-      </div>
-    </div>
-  </div>
-</div>
   </header>
 </body>
 </html>
