@@ -1,18 +1,49 @@
+/* ==========================================================================
+   Haagen-Dazs Site CSS (site-wide)
+   File: /assets/css/site.css
+   ========================================================================== */
+
 /* =========================
-   Google Font (Site-wide)
+   Google Font (fallback only)
+   ========================= */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap");
+
+/* =========================
+   Official Haagen-Dazs Fonts (Self-hosted)
+   Expected paths:
+   /assets/fonts/body/...
+   /assets/fonts/brand/...
    ========================= */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
-
-/* =========================
-   Brand Webfonts (Self-hosted)
-   Kept for optional use, but NOT used by default site-wide
-   ========================= */
+/* Body font: Hurme Geometric Sans 1 */
+@font-face {
+  font-family: "HurmeGeometric";
+  src: url("/assets/fonts/body/HurmeGeometricSans1-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @font-face {
+  font-family: "HurmeGeometric";
+  src: url("/assets/fonts/body/HurmeGeometricSans1-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "HurmeGeometric";
+  src: url("/assets/fonts/body/HurmeGeometricSans1-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Brand headline font: Dazs */
+@font-face {
   font-family: "Dazs";
-  src: url("/assets/fonts/dazs-webfont.woff2") format("woff2"),
-       url("/assets/fonts/dazs-webfont.woff") format("woff");
+  src: url("/assets/fonts/brand/Dazs.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -20,17 +51,16 @@
 
 @font-face {
   font-family: "Dazs";
-  src: url("/assets/fonts/dazs-bold-webfont.woff2") format("woff2"),
-       url("/assets/fonts/dazs-bold-webfont.woff") format("woff");
+  src: url("/assets/fonts/brand/Dazs_Bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+/* Brand script font: Dazs Script */
 @font-face {
   font-family: "Dazs Script";
-  src: url("/assets/fonts/dazs-script-webfont.woff2") format("woff2"),
-       url("/assets/fonts/dazs-script-webfont.woff") format("woff");
+  src: url("/assets/fonts/brand/Dazs_Script.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -39,7 +69,6 @@
 /* =========================
    Root Variables
    ========================= */
-
 :root {
   /* Brand Colors */
   --hd-burgundy: #650B32;
@@ -48,62 +77,178 @@
   --hd-gold-light: #F9E6C3;
   --hd-white: #FFFFFF;
 
-  /* Typography: Poppins everywhere by default */
-  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-headline: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-script: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  /* Global surfaces */
+  --hd-cream-bg: #fff8ea;
+  --hd-card-bg: #ffffff;
+  --hd-border-soft: 1px solid rgba(0,0,0,0.08);
+  --hd-border-soft-strong: 1px solid rgba(0,0,0,0.10);
+  --hd-shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
+  --hd-radius-lg: 18px;
+  --hd-radius-md: 14px;
 
-  /* Optional brand fonts (opt-in only) */
+  /* Typography (Hurme first, Outfit fallback) */
+  --font-body: "HurmeGeometric", "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-headline: "HurmeGeometric", "Outfit", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  /* Brand opt-in fonts */
   --font-brand-headline: "Dazs", serif;
   --font-brand-script: "Dazs Script", cursive;
+
+  /* Type scale */
+  --fs-hero: 64px;
+  --lh-hero: 83.2px;
+
+  --fs-h2: 36px;
+  --lh-h2: 44px;
+
+  --fs-h3: 20px;
+  --lh-h3: 26px;
+
+  --fs-body: 16px;
+  --lh-body: 24px;
+
+  --fs-small: 12.5px;
+  --lh-small: 20px;
 }
 
 /* =========================
-   Base + Global Typography
+   Base + Typography
    ========================= */
-
 html { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 
 body {
   margin: 0;
   font-family: var(--font-body) !important;
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
   color: var(--hd-burgundy);
-  background-color: var(--hd-white);
-  line-height: 1.5;
+  background-color: var(--hd-cream-bg);
 }
 
-/* Make sure everything inherits Poppins by default */
-* {
-  font-family: inherit;
-}
+* { font-family: inherit; }
 
-/* Headings also Poppins site-wide */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-headline) !important;
-  font-weight: 800;
   color: var(--hd-burgundy);
+  margin: 0;
 }
 
-/* Links inherit Poppins */
-a {
-  font-family: inherit;
+h1 { font-size: var(--fs-hero); line-height: var(--lh-hero); font-weight: 700; }
+h2 { font-size: var(--fs-h2); line-height: var(--lh-h2); font-weight: 700; }
+h3 { font-size: var(--fs-h3); line-height: var(--lh-h3); font-weight: 600; } /* uses SemiBold */
+
+/* Paragraph defaults */
+p {
+  margin: 0;
+  font-weight: 400;
 }
 
-/* Force form controls + buttons + chips to stay Poppins */
+/* "Icecream.com-like" hierarchy helpers */
+.body-copy { font-weight: 400; }
+
+.sub-head,
+.lead,
+.section-intro {
+  font-weight: 600; /* uses SemiBold */
+}
+
+/* Links */
+a { color: inherit; }
+a:focus { outline: 2px solid rgba(210, 153, 55, 0.45); outline-offset: 2px; }
+
+/* Navigation, buttons, labels */
+nav a,
+.btn,
 button,
 input,
 select,
 textarea,
 .chip,
-.btn {
+label {
   font-family: var(--font-body) !important;
+  font-weight: 600; /* uses SemiBold */
+}
+
+/* Small/meta text */
+.small,
+.caption,
+.meta {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  font-weight: 400;
 }
 
 /* =========================
-   Opt-in Brand Type (only if you add these classes)
+   Layout Helpers
    ========================= */
+#siteHeader, #siteFooter { margin: 0; padding: 0; }
 
+main { display: block; background: transparent; }
+
+/* Common container */
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   Surfaces / Cards
+   ========================= */
+.card,
+.panel,
+.form-card,
+.preview-card,
+.loc-block,
+.review,
+.micro-block {
+  background: var(--hd-card-bg);
+}
+
+.card,
+.panel,
+.form-card {
+  border: var(--hd-border-soft);
+  border-radius: var(--hd-radius-lg);
+  box-shadow: var(--hd-shadow-soft);
+}
+
+.preview-card,
+.loc-block,
+.review,
+.micro-block {
+  border: var(--hd-border-soft);
+  border-radius: var(--hd-radius-md);
+  box-shadow: none;
+}
+
+/* =========================
+   Sections
+   ========================= */
+.page-hero {
+  background: var(--hd-card-bg);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.section,
+.section-band {
+  background: transparent;
+}
+
+.section-cream { background: var(--hd-cream-bg); }
+.section-grad { background: linear-gradient(180deg, rgba(249,230,195,0.20), rgba(255,255,255,1)); }
+
+/* =========================
+   Buttons / Chips (safe defaults)
+   ========================= */
+.btn { border-radius: 14px; }
+.chip { border-radius: 999px; }
+
+/* =========================
+   Brand Opt-in Fonts
+   ========================= */
 .hd-headline {
   font-family: var(--font-brand-headline) !important;
   font-weight: 700;
@@ -111,11 +256,11 @@ textarea,
 
 .brand-script {
   font-family: var(--font-brand-script) !important;
+  font-weight: 400;
 }
 
 /* =========================
    Utilities
    ========================= */
-
 .text-gold { color: var(--hd-gold); }
 .bg-gold { background-color: var(--hd-gold); color: var(--hd-white); }
