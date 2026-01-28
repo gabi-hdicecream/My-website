@@ -317,10 +317,26 @@
       text-decoration: none;
       font-weight: 800;
       font-size: 14px;
+      white-space: nowrap;
     }
 
     .chip:hover,
     .chip:focus { background: rgba(249, 230, 195, 0.78); outline: none; }
+
+    .chip .chip-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      display: block;
+      flex: 0 0 auto;
+    }
+
+    .chip.is-sauce {
+      border-color: rgba(101, 11, 50, 0.22);
+      background: rgba(255,255,255,0.68);
+    }
+    .chip.is-sauce:hover,
+    .chip.is-sauce:focus { background: rgba(249, 230, 195, 0.78); }
 
     .icon-block {
       margin-top: 16px;
@@ -508,6 +524,10 @@
           <div class="actions">
             <a class="chip" href="https://maps.app.goo.gl/QsDxzKYF9mttgKL28" target="_blank" rel="noopener noreferrer">Directions</a>
             <a class="chip" href="tel:+17869638203">Call</a>
+            <a class="chip is-sauce" href="https://www.getsauce.com/order/haagen-dazs-north-miami-causeway-square/menu" target="_blank" rel="noopener noreferrer" aria-label="Order Delivery and Pickup">
+              <img class="chip-icon" src="/assets/images/placeholders/hd_sauce_logo.png" alt="">
+              Order Delivery & Pickup
+            </a>
           </div>
 
           <div class="icon-block">
