@@ -434,7 +434,7 @@ input, select, textarea {
 <div class="form-card">
 <div class="form-head">
 <div class="form-title">Application Form</div>
-<div class="form-note">All fields with * are required.</div>
+<div class="form-note">All fields required unless marked optional.</div>
 </div>
 <div class="form-body">
 <div aria-live="polite" class="status" id="formStatus" role="status"></div>
@@ -495,7 +495,7 @@ input, select, textarea {
 <div class="positions" id="positionsWrap">
 <div class="field col-12">
 <label>Position</label>
-<input aria-label="Position applied for" class="input" id="position" name="position" readonly="" type="text" value="Team Member"/>
+<input aria-label="Position applied for" class="input" readonly="" type="text" value="Team Member"/>
 </div>
 </div>
 <div style="height:10px"></div>
@@ -522,11 +522,11 @@ input, select, textarea {
 <div class="grid">
 <div class="field col-6">
 <label for="school_name">College/School name</label>
-<input autocomplete="organization" id="school_name" name="college_school_name" placeholder="" type="text">
+<input autocomplete="organization" id="school_name" name="high_school_name" placeholder="" type="text">
 </input></div>
 <div class="field col-6">
 <label for="graduated">Graduated?</label>
-<select id="graduated" name="graduated">
+<select id="graduated" name="high_school_graduated">
 <option disabled="" selected="" value="">Select</option>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
@@ -537,11 +537,11 @@ input, select, textarea {
 <div class="grid">
 <div class="field col-6">
 <label for="course_of_study">Course of study</label>
-<input id="course_of_study" name="course_of_study" type="text">
+<input id="course_of_study" name="high_school_course" type="text">
 </input></div>
 <div class="field col-6">
 <label for="diploma_degree">Diploma or degree</label>
-<input id="diploma_degree" name="diploma_or_degree" type="text">
+<input id="diploma_degree" name="high_school_degree" type="text">
 </input></div>
 </div>
 </div>
@@ -551,19 +551,19 @@ input, select, textarea {
 <div aria-label="Job 1" class="grid">
 <div class="field col-6">
 <label for="job1_company">Company</label>
-<input data-cap="words" id="job1_company" name="company_1" type="text"/>
+<input data-cap="words" id="job1_company" name="job1_company" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job1_title">Position</label>
-<input data-cap="words" id="job1_title" name="position_1" type="text"/>
+<input data-cap="words" id="job1_title" name="job1_title" type="text"/>
 </div>
 <div class="field col-3">
 <label for="job1_from">From</label>
-<input id="job1_from" name="company_1_from" type="month"/>
+<input id="job1_from" name="job1_from" type="month"/>
 </div>
 <div class="field col-3">
 <label for="job1_to">To</label>
-<input id="job1_to" name="company_1_to" type="month"/>
+<input id="job1_to" name="job1_to" type="month"/>
 </div>
 <div class="field col-6">
 <label for="job1_phone">Phone</label>
@@ -571,38 +571,38 @@ input, select, textarea {
 </div>
 <div class="field col-4">
 <label for="job1_city">City</label>
-<input data-cap="words" id="job1_city" name="company_1_city" type="text"/>
+<input data-cap="words" id="job1_city" name="job1_city" type="text"/>
 </div>
 <div class="field col-2">
 <label for="job1_state">State</label>
-<input data-cap="state" id="job1_state" maxlength="2" name="company_1_state" placeholder="FL" type="text"/>
+<input data-cap="state" id="job1_state" maxlength="2" name="job1_state" placeholder="FL" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job1_supervisor">Supervisor</label>
-<input data-cap="words" id="job1_supervisor" name="company_1_supervisor" type="text"/>
+<input data-cap="words" id="job1_supervisor" name="job1_supervisor" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job1_duties">Duties</label>
-<textarea data-cap="words" id="job1_duties" name="company_1_duties"></textarea>
+<textarea data-cap="words" id="job1_duties" name="job1_duties"></textarea>
 </div>
 </div>
 <div style="height:14px"></div>
 <div aria-label="Job 2" class="grid">
 <div class="field col-6">
 <label for="job2_company">Company</label>
-<input data-cap="words" id="job2_company" name="company_2" type="text"/>
+<input data-cap="words" id="job2_company" name="job2_company" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job2_title">Position</label>
-<input data-cap="words" id="job2_title" name="position_2" type="text"/>
+<input data-cap="words" id="job2_title" name="job2_title" type="text"/>
 </div>
 <div class="field col-3">
 <label for="job2_from">From</label>
-<input id="job2_from" name="company_2_from" type="month"/>
+<input id="job2_from" name="job2_from" type="month"/>
 </div>
 <div class="field col-3">
 <label for="job2_to">To</label>
-<input id="job2_to" name="company_2_to" type="month"/>
+<input id="job2_to" name="job2_to" type="month"/>
 </div>
 <div class="field col-6">
 <label for="job2_phone">Phone</label>
@@ -610,19 +610,19 @@ input, select, textarea {
 </div>
 <div class="field col-4">
 <label for="job2_city">City</label>
-<input data-cap="words" id="job2_city" name="company_2_city" type="text"/>
+<input data-cap="words" id="job2_city" name="job2_city" type="text"/>
 </div>
 <div class="field col-2">
 <label for="job2_state">State</label>
-<input data-cap="state" id="job2_state" maxlength="2" name="company_2_state" placeholder="FL" type="text"/>
+<input data-cap="state" id="job2_state" maxlength="2" name="job2_state" placeholder="FL" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job2_supervisor">Supervisor</label>
-<input data-cap="words" id="job2_supervisor" name="company_2_supervisor" type="text"/>
+<input data-cap="words" id="job2_supervisor" name="job2_supervisor" type="text"/>
 </div>
 <div class="field col-6">
 <label for="job2_duties">Duties</label>
-<textarea data-cap="words" id="job2_duties" name="company_2_duties"></textarea>
+<textarea data-cap="words" id="job2_duties" name="job2_duties"></textarea>
 </div>
 </div>
 </div>
@@ -632,38 +632,38 @@ input, select, textarea {
 <div aria-label="Reference 1" class="grid">
 <div class="field col-6">
 <label for="ref1_name">Reference name</label>
-<input data-cap="words" id="ref1_name" name="reference_name_1" type="text"/>
+<input data-cap="words" id="ref1_name" name="ref1_name" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref1_relationship">Relationship</label>
-<input data-cap="words" id="ref1_relationship" name="reference_relationship_1" type="text"/>
+<input data-cap="words" id="ref1_relationship" name="ref1_relationship" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref1_company">Company</label>
-<input id="ref1_company" name="reference_company_1" type="text"/>
+<input id="ref1_company" name="ref1_company" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref1_phone">Phone</label>
-<input id="ref1_phone" inputmode="tel" name="reference_phone_1" placeholder="(XXX) XXX-XXXX" type="tel"/>
+<input id="ref1_phone" inputmode="tel" name="ref1_phone" placeholder="(XXX) XXX-XXXX" type="tel"/>
 </div>
 </div>
 <div style="height:14px"></div>
 <div aria-label="Reference 2" class="grid">
 <div class="field col-6">
 <label for="ref2_name">Reference name</label>
-<input data-cap="words" id="ref2_name" name="reference_name_2" type="text"/>
+<input data-cap="words" id="ref2_name" name="ref2_name" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref2_relationship">Relationship</label>
-<input data-cap="words" id="ref2_relationship" name="reference_relationship_2" type="text"/>
+<input data-cap="words" id="ref2_relationship" name="ref2_relationship" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref2_company">Company</label>
-<input id="ref2_company" name="reference_company_2" type="text"/>
+<input id="ref2_company" name="ref2_company" type="text"/>
 </div>
 <div class="field col-6">
 <label for="ref2_phone">Phone</label>
-<input id="ref2_phone" inputmode="tel" name="reference_phone_2" placeholder="(XXX) XXX-XXXX" type="tel"/>
+<input id="ref2_phone" inputmode="tel" name="ref2_phone" placeholder="(XXX) XXX-XXXX" type="tel"/>
 </div>
 </div>
 </div>
