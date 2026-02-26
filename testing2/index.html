@@ -38,10 +38,6 @@
   </script>
 
   <style>
-/* Keep the Send Message button the same size after submit */
-.actions{display:flex;flex-direction:column;align-items:center;gap:12px;}
-.actions .btn{align-self:center;}
-
     :root {
       --container: 920px;
       --radius-lg: 18px;
@@ -205,8 +201,15 @@
     }
 
     .actions {
+      /* IMPORTANT: Keep the button width stable when the status text appears.
+         If the actions area uses an auto-sized grid column, the widest item
+         (often the status line) can widen the column and make the button look
+         like it "expands". Lock the grid to the container width and center
+         items so the button size never changes. */
       display: grid;
-      justify-content: center;
+      grid-template-columns: 1fr;
+      justify-items: center;
+      row-gap: 12px;
       padding: 18px 16px 18px;
       border-top: 1px solid rgba(0,0,0,0.08);
       background: rgba(249, 230, 195, 0.14);
@@ -237,7 +240,10 @@
     }
 
     .status {
-      margin-top: 12px;
+      /* Constrain status width so it wraps instead of affecting layout */
+      max-width: 560px;
+      width: 100%;
+      margin: 0;
       text-align: center;
       font-size: 13px;
       color: rgba(101, 11, 50, 0.82);
@@ -284,7 +290,10 @@
   justify-content: center !important;
 }
 .actions .btn.btnWide,
-.actions button.btn.btnWide{ width:auto !important; max-width:none !important; }
+.actions button.btn.btnWide {
+  width: 100% !important;
+  max-width: 560px !important;
+}
 .actions .btn:disabled,
 .actions button.btn:disabled {
   opacity: 0.85;
