@@ -38,6 +38,10 @@
   </script>
 
   <style>
+/* Keep the Send Message button the same size after submit */
+.actions{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.actions .btn{align-self:center;}
+
     :root {
       --container: 920px;
       --radius-lg: 18px;
@@ -280,10 +284,7 @@
   justify-content: center !important;
 }
 .actions .btn.btnWide,
-.actions button.btn.btnWide {
-  width: 100% !important;
-  max-width: 560px !important;
-}
+.actions button.btn.btnWide{ width:auto !important; max-width:none !important; }
 .actions .btn:disabled,
 .actions button.btn:disabled {
   opacity: 0.85;
