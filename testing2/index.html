@@ -3,35 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join Our Team | Häagen-Dazs</title>
-  <meta name="description" content="Apply to join the team at Häagen-Dazs North Miami and North Beach. Submit your application online and we will follow up soon.">
-  <link rel="canonical" href="https://www.hdicecream.com/join/">
-
+  <title>Contact | Häagen-Dazs</title>
+  <meta name="description" content="Contact Häagen-Dazs North Miami and Collins North Beach. Send us a message and we will get back to you as soon as possible.">
+  <link rel="canonical" href="https://www.hdicecream.com/contact/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Häagen-Dazs">
-  <meta property="og:title" content="Join Our Team | Häagen-Dazs">
-  <meta property="og:description" content="Apply to join the team at Häagen-Dazs North Miami and North Beach. Submit your application online and we will follow up soon.">
-  <meta property="og:url" content="https://www.hdicecream.com/join/">
+  <meta property="og:title" content="Contact | Häagen-Dazs">
+  <meta property="og:description" content="Contact Häagen-Dazs North Miami and Collins North Beach. Send us a message and we will get back to you as soon as possible.">
+  <meta property="og:url" content="https://www.hdicecream.com/contact/">
   <meta property="og:image" content="https://www.hdicecream.com/assets/images/hd_og_image.jpg">
   <meta property="og:image:secure_url" content="https://www.hdicecream.com/assets/images/hd_og_image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Apply to work at Häagen-Dazs North Miami and North Beach.">
-
+  <meta property="og:image:alt" content="Häagen-Dazs contact page.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Join Our Team | Häagen-Dazs">
-  <meta name="twitter:description" content="Apply to join the team at Häagen-Dazs North Miami and North Beach. Submit your application online and we will follow up soon.">
+  <meta name="twitter:title" content="Contact | Häagen-Dazs">
+  <meta name="twitter:description" content="Contact Häagen-Dazs North Miami and Collins North Beach. Send us a message and we will get back to you as soon as possible.">
   <meta name="twitter:image" content="https://www.hdicecream.com/assets/images/hd_og_image.jpg">
-
   <link rel="icon" href="/assets/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png">
   <link rel="manifest" href="/assets/images/site.webmanifest">
   <meta name="theme-color" content="#650B32">
-
   <link rel="stylesheet" href="/assets/css/site.css">
 
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-JJ3XB37TBM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -40,7 +37,12 @@
     gtag("config", "G-JJ3XB37TBM");
   </script>
 
-  <style>:root {
+  <style>
+/* Keep the Send Message button the same size after submit */
+.actions{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.actions .btn{align-self:center;}
+
+    :root {
       --container: 920px;
       --radius-lg: 18px;
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
@@ -269,463 +271,84 @@
       min-width: 220px;
     }
     }
-
-/* Join page: align styling to Contact page */
-.card {
-  background: var(--hd-white);
-  border: var(--border-soft);
-  border-radius: 0;
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  /* Button size lock: prevent visual jump on submit/disabled */
+.actions .btn,
+.actions button.btn {
+  height: 52px !important;
+  min-height: 52px !important;
+  line-height: 52px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
-.card-body {
-  padding: 18px;
-  background: var(--hd-white);
+.actions .btn.btnWide,
+.actions button.btn.btnWide{ width:auto !important; max-width:none !important; }
+.actions .btn:disabled,
+.actions button.btn:disabled {
+  opacity: 0.85;
 }
-.group {
-  padding: 18px 0 0;
-  border-top: 1px solid rgba(0,0,0,0.08);
-  margin-top: 18px;
-}
-.group:first-of-type {
-  border-top: 0;
-  margin-top: 0;
-  padding-top: 0;
-}
-.group-title {
-  margin: 0 0 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(101, 11, 50, 0.85);
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: 14px;
-}
-.col-12 { grid-column: span 12; }
-.col-8 { grid-column: span 8; }
-.col-6 { grid-column: span 6; }
-.col-4 { grid-column: span 4; }
-.col-3 { grid-column: span 3; }
-.col-2 { grid-column: span 2; }
-@media (max-width: 860px) {
-  .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
-  .col-8 { grid-column: span 6; }
-  .col-6 { grid-column: span 6; }
-  .col-4 { grid-column: span 6; }
-  .col-3 { grid-column: span 3; }
-  .col-2 { grid-column: span 3; }
-}
-@media (max-width: 560px) {
-  .grid { grid-template-columns: 1fr; }
-  .col-12,.col-8,.col-6,.col-4,.col-3,.col-2 { grid-column: span 1; }
-}
-.field label,
-.label {
-  display: block;
-  font-weight: 800;
-  color: #650B32;
-  margin: 0 0 8px;
-}
-.helper, .note, .muted {
-  font-size: 12px;
-  color: rgba(101, 11, 50, 0.72);
-}
-.helper { margin-top: 6px; }
-.note { margin-top: 12px; }
-textarea { min-height: 120px; resize: vertical; }
-input, select, textarea {
-  border-radius: 0 !important;
-}
-input[type="date"] {
-  border-radius: 0 !important;
-  appearance: none;
-}
-.checkbox-row {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-.checkbox-row input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-}
-.actions {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-start;
-  margin-top: 16px;
-}
-
-
-/* Match Contact page layout styles */
-.page-hero {
-      background: var(--hd-white);
-      padding: 26px 0 10px;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
-    }
-.section {
-      padding: 18px 0 34px;
-      background: var(--band-gold-bg);
-    }
-.form-card {
-      background: var(--hd-white);
-      border: var(--border-soft);
-      border-radius: 0;
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-    }
-.form-head {
-      padding: 14px 16px;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-      background: rgba(249, 230, 195, 0.22);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-.grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      align-items: start;
-    }
-.field {
-      display: grid;
-      gap: 6px;
-    }
-input, select, textarea {
-      width: 100%;
-      border: 1px solid rgba(101, 11, 50, 0.18);
-      border-radius: 0;
-      padding: 11px 12px;
-      font-size: 14px;
-      color: rgba(31, 27, 28, 0.95);
-      background: #fff;
-      outline: none;
-      font-family: var(--font-body);
-    }
-
-
-
-
 </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
   <div id="siteHeader"></div>
-
   <main id="main">
-    <section class="page-hero" aria-label="Join intro">
+    <section class="page-hero" aria-label="Contact header">
       <div class="container">
-        <h1>Join Our Team</h1>
-        <p>Use this application to apply for roles at Häagen-Dazs North Miami and North Beach. After you submit, you will receive a confirmation email and the team will review your application.</p>
+        <div class="kicker">Contact</div>
+        <h1>Send us a message</h1>
+        <p class="sublead">
+          Have a question about our menu, cakes, catering, or pickup? Send a message and our team will reply as soon as possible.
+        </p>
       </div>
     </section>
 
-    <section class="section" aria-label="Application form">
+    <section class="section" aria-label="Contact form section">
       <div class="container">
-        <div class="form-card">
-          
+        <div class="form-card" role="region" aria-label="Contact form card">
           <div class="form-head">
-            <div class="form-title">Application Form</div>
-            <div class="form-note">All fields required unless marked optional.</div>
+            <div class="title">Contact Form</div>
+            <div class="help">We will email a copy of your message to you.</div>
           </div>
-<div class="form-body">
-            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
 
-            <form id="joinForm" class="form" novalidate>
-
-              <div class="section" aria-label="Personal information">
-                <h2>Personal information</h2>
-                <div class="grid">
-                  <div class="field col-6">
-                    <label for="first_name">First name</label>
-                    <input id="first_name" name="first_name" type="text" autocomplete="given-name" required>
-                  </div>
-                  <div class="field col-6">
-                    <label for="last_name">Last name</label>
-                    <input id="last_name" name="last_name" type="text" autocomplete="family-name" required>
-                  </div>
-
-                  <div class="field col-4">
-                    <label for="dob">Date of birth</label>
-                    <input id="dob" name="dob" type="date" required>
-                  </div>
-
-                  <div class="field col-4">
-                    <label for="phone">Phone</label>
-                    <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX" autocomplete="tel" required>
-</div>
-
-                  <div class="field col-4">
-                    <label for="email">Email</label>
-                    <input id="email" name="email" type="email" autocomplete="email" required>
-                  </div>
-
-                  <div class="field col-8">
-                    <label for="address">Address</label>
-                    <input id="address" name="address" type="text" autocomplete="street-address" required>
-                  </div>
-
-                  <div class="field col-4">
-                    <label for="city">City</label>
-                    <input id="city" name="city" type="text" autocomplete="address-level2" required>
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="state">State</label>
-                    <input id="state" name="state" type="text" maxlength="2" placeholder="FL" autocomplete="address-level1" required>
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="zip">Zip</label>
-                    <input id="zip" name="zip" type="text" inputmode="numeric" maxlength="10" placeholder="" autocomplete="postal-code" required>
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="location_preference">Preferred location</label>
-                    <select id="location_preference" name="location_preference" required>
-                      <option value="" selected disabled>Select</option>
-                      <option value="north_miami">North Miami</option>
-                      <option value="north_beach">North Beach</option>
-                      <option value="either">Either location</option>
-                    </select>
-                  </div>
-                </div>
+          <form id="contactForm" novalidate>
+            <div class="grid">
+              <div class="field">
+                <label for="firstName">First Name</label>
+                <input id="firstName" name="first_name" type="text" autocomplete="given-name" required>
               </div>
 
-              <div class="section" aria-label="Position and availability">
-                <h2>Position and availability</h2>
-
-                
-              <div class="positions" id="positionsWrap">
-                <div class="field col-12">
-                  <label>Position</label>
-                  <input class="input" type="text" value="Team Member" readonly aria-label="Position applied for">
-                </div>
+              <div class="field">
+                <label for="lastName">Last Name</label>
+                <input id="lastName" name="last_name" type="text" autocomplete="family-name" required>
               </div>
 
-              <div style="height:10px"></div>
-
-                <div class="grid">
-<div class="field col-4">
-                    <label for="date_available">Date available</label>
-                    <input id="date_available" name="date_available" type="date" required>
-                  </div>
-
-                  
-<div class="field col-4">
-                    <label for="work_eligible">Legally eligible to work in the US?</label>
-                    <select id="work_eligible" name="work_eligible" required>
-                      <option value="" selected disabled>Select</option>
-                      <option value="Yes">Yes</option>
-                      <option value="No">No</option>
-                    </select>
-                  </div>
-
-
-<div class="field col-12">
-                    <label for="availability">Availability <span class="muted">(open late 7 days a week, including holidays)</span></label>
-                    <textarea class="input" id="availability" name="availability" placeholder="Tell us your availability (days and times)." required></textarea>
-                  </div>
-                </div>
-
-
-      <div class="section" aria-label="Education">
-        <h2 class="section-title">Education</h2>
-
-        <div class="grid cols-2">
-          <div class="field">
-            <label for="school_name">College/School name</label>
-            <input id="school_name" name="high_school_name" type="text" placeholder="" autocomplete="organization" />
-          </div>
-
-          <div class="field">
-            <label for="graduated">Graduated?</label>
-            <select id="graduated" name="high_school_graduated">
-              <option value="" selected disabled>Select</option>
-              <option value="Yes">Yes</option>
-              <option value="No">No</option>
-              <option value="In progress">In progress</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="grid cols-2">
-          <div class="field">
-            <label for="course_of_study">Course of study</label>
-            <input id="course_of_study" name="high_school_course" type="text" />
-          </div>
-
-          <div class="field">
-            <label for="diploma_degree">Diploma or degree</label>
-            <input id="diploma_degree" name="high_school_degree" type="text" />
-          </div>
-        </div>
-      </div>
-
-
-      <div class="section" aria-label="Work history">
-                <h2>Work history</h2>
-                <div class="help">List your two most recent jobs.</div>
-
-                <div class="grid" aria-label="Job 1">
-                  <div class="field col-6">
-                    <label for="job1_company">Company</label>
-                    <input id="job1_company" name="job1_company" type="text" required>
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job1_title">Position</label>
-                    <input id="job1_title" name="job1_title" type="text" required>
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="job1_from">From</label>
-                    <input id="job1_from" name="job1_from" type="month" required>
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="job1_to">To</label>
-                    <input id="job1_to" name="job1_to" type="month" required>
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job1_phone">Phone</label>
-                    <input id="job1_phone" name="job1_phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX">
-                  </div>
-
-                  <div class="field col-4">
-                    <label for="job1_city">City</label>
-                    <input id="job1_city" name="job1_city" type="text">
-                  </div>
-
-                  <div class="field col-2">
-                    <label for="job1_state">State</label>
-                    <input id="job1_state" name="job1_state" type="text" maxlength="2" placeholder="FL">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job1_supervisor">Supervisor</label>
-                    <input id="job1_supervisor" name="job1_supervisor" type="text">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job1_duties">Duties</label>
-                    <textarea id="job1_duties" name="job1_duties"></textarea>
-                  </div>
-                </div>
-
-                <div style="height:14px"></div>
-
-                <div class="grid" aria-label="Job 2">
-                  <div class="field col-6">
-                    <label for="job2_company">Company</label>
-                    <input id="job2_company" name="job2_company" type="text">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job2_title">Position</label>
-                    <input id="job2_title" name="job2_title" type="text">
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="job2_from">From</label>
-                    <input id="job2_from" name="job2_from" type="month">
-                  </div>
-
-                  <div class="field col-3">
-                    <label for="job2_to">To</label>
-                    <input id="job2_to" name="job2_to" type="month">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job2_phone">Phone</label>
-                    <input id="job2_phone" name="job2_phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX">
-                  </div>
-
-                  <div class="field col-4">
-                    <label for="job2_city">City</label>
-                    <input id="job2_city" name="job2_city" type="text">
-                  </div>
-
-                  <div class="field col-2">
-                    <label for="job2_state">State</label>
-                    <input id="job2_state" name="job2_state" type="text" maxlength="2" placeholder="FL">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job2_supervisor">Supervisor</label>
-                    <input id="job2_supervisor" name="job2_supervisor" type="text">
-                  </div>
-
-                  <div class="field col-6">
-                    <label for="job2_duties">Duties</label>
-                    <textarea id="job2_duties" name="job2_duties"></textarea>
-                  </div>
-                </div>
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX" required>
               </div>
 
-              <div class="section" aria-label="References">
-                <h2>References</h2>
-                <div class="help">Provide two references (not relatives).</div>
-
-                <div class="grid" aria-label="Reference 1">
-                  <div class="field col-6">
-                    <label for="ref1_name">Reference name</label>
-                    <input id="ref1_name" name="ref1_name" type="text" required>
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref1_relationship">Relationship</label>
-                    <input id="ref1_relationship" name="ref1_relationship" type="text" required>
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref1_company">Company</label>
-                    <input id="ref1_company" name="ref1_company" type="text">
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref1_phone">Phone</label>
-                    <input id="ref1_phone" name="ref1_phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX" required>
-                  </div>
-                </div>
-
-                <div style="height:14px"></div>
-
-                <div class="grid" aria-label="Reference 2">
-                  <div class="field col-6">
-                    <label for="ref2_name">Reference name</label>
-                    <input id="ref2_name" name="ref2_name" type="text" required>
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref2_relationship">Relationship</label>
-                    <input id="ref2_relationship" name="ref2_relationship" type="text" required>
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref2_company">Company</label>
-                    <input id="ref2_company" name="ref2_company" type="text">
-                  </div>
-                  <div class="field col-6">
-                    <label for="ref2_phone">Phone</label>
-                    <input id="ref2_phone" name="ref2_phone" type="tel" inputmode="tel" placeholder="(XXX) XXX-XXXX" required>
-                  </div>
-                </div>
-              </div>
-<div class="btnRow">
-                  <button class="btnLocal" type="reset">Reset</button>
-                  <button class="btnLocal primary" type="submit">Submit Application</button>
-                </div>
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required>
               </div>
 
-            </form>
-          </div>
+              <div class="field full">
+                <div class="inline-row">
+                  <label for="message">Message</label>
+                  <div class="counter" id="msgCounter">0 / 1000</div>
+                </div>
+                <textarea id="message" name="message" maxlength="1000" placeholder="How can we help?" required></textarea>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button class="btn" type="submit" id="submitBtn">Send Message</button>
+              <div class="status" id="statusMsg" aria-live="polite"></div>
+            </div>
+          </form>
         </div>
       </div>
     </section>
@@ -744,57 +367,166 @@ input, select, textarea {
           .catch(function () { el.innerHTML = ""; });
       }
 
-      var docLang = document.documentElement.getAttribute("lang") || "en";
-      var isEs = docLang.toLowerCase().indexOf("es") === 0;
-
-      var headerUrl = isEs ? "/assets/includes/header-es.html" : "/assets/includes/header.html";
-      var footerUrl = isEs ? "/assets/includes/footer-es.html" : "/assets/includes/footer.html";
-
-      loadInto("siteHeader", headerUrl);
-      loadInto("siteFooter", footerUrl);
+      loadInto("siteHeader", "/assets/includes/header.html");
+      loadInto("siteFooter", "/assets/includes/footer.html");
     })();
   </script>
 
   <script>
-    (function(){
-      var APPS_SCRIPT_URL = ""; // paste your Apps Script Web App URL here
+    (function () {
+      var WEB_APP_URL = "https://script.google.com/macros/s/AKfycbyJ-wQg3QplX41eGyq5T4bDAY04EnkjQZHGrYy6t4cCsuGhiVLgbDx0nEnteLfHDmuT9A/exec";
 
-      function setStatus(kind, msg){
-        var el = document.getElementById("formStatus");
-        if(!el) return;
-        el.className = "status" + (kind ? (" " + kind) : "");
-        el.textContent = msg || "";
-        el.style.display = msg ? "block" : "none";
+      var form = document.getElementById("contactForm");
+      var statusMsg = document.getElementById("statusMsg");
+      var submitBtn = document.getElementById("submitBtn");
+
+      var firstName = document.getElementById("firstName");
+      var lastName = document.getElementById("lastName");
+      var phone = document.getElementById("phone");
+
+      var messageEl = document.getElementById("message");
+      var msgCounter = document.getElementById("msgCounter");
+      var MSG_MAX = 1000;
+
+      function capFirst(s) {
+        s = String(s || "").trim();
+        if (!s) return "";
+        return s.charAt(0).toUpperCase() + s.slice(1);
       }
 
-      function onlyDigits(s){ return String(s || "").replace(/\D/g, ""); }
-
-      function formatPhone(v){
-        var d = onlyDigits(v).slice(0, 10);
-        if(d.length === 0) return "";
-        if(d.length < 4) return "(" + d;
-        if(d.length < 7) return "(" + d.slice(0,3) + ") " + d.slice(3);
-        return "(" + d.slice(0,3) + ") " + d.slice(3,6) + "-" + d.slice(6);
+      function formatPhone(value) {
+        var digits = String(value || "").replace(/\D/g, "").slice(0, 10);
+        if (digits.length === 0) return "";
+        if (digits.length < 4) return "(" + digits;
+        if (digits.length < 7) return "(" + digits.slice(0,3) + ") " + digits.slice(3);
+        return "(" + digits.slice(0,3) + ") " + digits.slice(3,6) + "-" + digits.slice(6);
       }
 
-      function attachPhoneMask(id){
-        var el = document.getElementById(id);
-        if(!el) return;
-        el.addEventListener("input", function(){
-          var start = el.selectionStart || 0;
-          var before = el.value;
-          el.value = formatPhone(el.value);
-          if(before !== el.value){
-            try{ el.setSelectionRange(start, start); }catch(e){}
+      function setStatus(text, kind) {
+        statusMsg.textContent = text || "";
+        statusMsg.className = "status" + (kind ? " " + kind : "");
+      }
+
+      function updateMsgCounter() {
+        var n = (messageEl.value || "").length;
+        msgCounter.textContent = n + " / " + MSG_MAX;
+      }
+
+      function capitalizeSentences(text) {
+        var s = String(text || "");
+        var parts = s.split(/(\r?\n)/);
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i] === "\n" || parts[i] === "\r\n") continue;
+
+          var chunk = parts[i];
+          var leadMatch = chunk.match(/^\s*/);
+          var lead = leadMatch ? leadMatch[0] : "";
+          var body = chunk.slice(lead.length);
+
+          var out = "";
+          var startSentence = true;
+
+          for (var j = 0; j < body.length; j++) {
+            var ch = body.charAt(j);
+
+            if (startSentence) {
+              if (/[a-zA-Z]/.test(ch)) {
+                out += ch.toUpperCase();
+                startSentence = false;
+              } else {
+                out += ch;
+              }
+            } else {
+              out += ch;
+            }
+
+            if (ch === "." || ch === "!" || ch === "?") startSentence = true;
           }
-        });
-        el.addEventListener("blur", function(){
-          el.value = formatPhone(el.value);
-        });
+
+          parts[i] = lead + out;
+        }
+        return parts.join("");
       }
 
-      ["phone","job1_phone","job2_phone","ref1_phone","ref2_phone"].forEach(attachPhoneMask);
+      firstName.addEventListener("blur", function () { firstName.value = capFirst(firstName.value); });
+      lastName.addEventListener("blur", function () { lastName.value = capFirst(lastName.value); });
 
-      function collectPositions(){
-        return ["Team Member"];
-      }
+      phone.addEventListener("input", function () {
+        phone.value = formatPhone(phone.value);
+      });
+
+      messageEl.addEventListener("input", function () {
+        if ((messageEl.value || "").length > MSG_MAX) {
+          messageEl.value = (messageEl.value || "").slice(0, MSG_MAX);
+        }
+        updateMsgCounter();
+      });
+
+      messageEl.addEventListener("blur", function () {
+        var v = messageEl.value || "";
+        var next = capitalizeSentences(v);
+        if (next !== v) messageEl.value = next;
+        updateMsgCounter();
+      });
+
+      updateMsgCounter();
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        setStatus("", "");
+
+        firstName.value = capFirst(firstName.value);
+        lastName.value = capFirst(lastName.value);
+
+        messageEl.value = capitalizeSentences(messageEl.value || "");
+        if ((messageEl.value || "").length > MSG_MAX) {
+          messageEl.value = (messageEl.value || "").slice(0, MSG_MAX);
+        }
+        updateMsgCounter();
+
+        var data = {
+          first_name: (firstName.value || "").trim(),
+          last_name: (lastName.value || "").trim(),
+          phone: (phone.value || "").trim(),
+          email: (document.getElementById("email").value || "").trim(),
+          message: (messageEl.value || "").trim()
+        };
+
+        var required = ["first_name","last_name","phone","email","message"];
+        for (var i = 0; i < required.length; i++) {
+          if (!String(data[required[i]] || "").trim()) {
+            setStatus("Please complete all required fields before submitting.", "err");
+            return;
+          }
+        }
+
+        submitBtn.disabled = true;
+        
+        setStatus("Sending your message...", "");
+
+        // IMPORTANT: no-cors avoids the browser CORS block for Apps Script web apps.
+        // With no-cors, the response is opaque and cannot be read.
+        fetch(WEB_APP_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: JSON.stringify(data)
+        })
+        .then(function () {
+          // We cannot inspect the response, but the request was dispatched.
+          setStatus("Message sent. If you do not see a confirmation email soon, please try again or call the shop directly.", "ok");
+          form.reset();
+          updateMsgCounter();
+        })
+        .catch(function () {
+          setStatus("Network error. Please try again.", "err");
+        })
+        .finally(function () {
+          submitBtn.disabled = false;
+          
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
