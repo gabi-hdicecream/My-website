@@ -200,21 +200,6 @@
       white-space: nowrap;
     }
 
-    .actions {
-      /* IMPORTANT: Keep the button width stable when the status text appears.
-         If the actions area uses an auto-sized grid column, the widest item
-         (often the status line) can widen the column and make the button look
-         like it "expands". Lock the grid to the container width and center
-         items so the button size never changes. */
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
-      row-gap: 12px;
-      padding: 18px 16px 18px;
-      border-top: 1px solid rgba(0,0,0,0.08);
-      background: rgba(249, 230, 195, 0.14);
-    }
-
     .btn {
       display: inline-flex;
       align-items: center;
@@ -240,10 +225,7 @@
     }
 
     .status {
-      /* Constrain status width so it wraps instead of affecting layout */
-      max-width: 560px;
-      width: 100%;
-      margin: 0;
+      margin-top: 12px;
       text-align: center;
       font-size: 13px;
       color: rgba(101, 11, 50, 0.82);
@@ -277,28 +259,15 @@
       min-width: 220px;
     }
     }
-  /* Button size lock: prevent visual jump on submit/disabled */
-.actions .btn,
-.actions button.btn {
-  height: 52px !important;
-  min-height: 52px !important;
-  line-height: 52px !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-}
-.actions .btn.btnWide,
-.actions button.btn.btnWide {
-  width: 100% !important;
-  max-width: 560px !important;
-}
-.actions .btn:disabled,
-.actions button.btn:disabled {
-  opacity: 0.85;
-}
-</style>
+  
+
+  <style>
+    /* Fix: keep Send Message button width stable when status text appears */
+    .actions { text-align: center; }
+    .actions #submitBtn { display: inline-flex; }
+    #statusMsg { margin-top: 14px; }
+  </style>
+
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -355,8 +324,8 @@
 
             <div class="actions">
               <button class="btn" type="submit" id="submitBtn">Send Message</button>
-              <div class="status" id="statusMsg" aria-live="polite"></div>
             </div>
+            <div class="status" id="statusMsg" aria-live="polite"></div>
           </form>
         </div>
       </div>
