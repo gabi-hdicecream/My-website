@@ -200,23 +200,7 @@
       white-space: nowrap;
     }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 16px;
-      border-radius: var(--radius-btn);
-      text-decoration: none;
-      font-weight: 900;
-      border: 0;
-      cursor: pointer;
-      user-select: none;
-      font-family: var(--font-body);
-      background: var(--hd-burgundy);
-      color: var(--hd-white);
-      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
-      min-width: 220px;
-    }
+    .btn{display:inline-flex !important;align-items:center;justify-content:center;padding:12px 16px;border-radius:var(--radius-btn);text-decoration:none;font-weight:900;border:0;cursor:pointer;user-select:none;font-family:var(--font-body);background:var(--hd-burgundy);color:var(--hd-white);box-shadow:0 10px 22px rgba(0,0,0,0.10);width:220px !important;max-width:90%;flex:0 0 auto !important}
 
     .btn:hover,
     .btn:focus {
@@ -224,12 +208,7 @@
       background: rgba(101, 11, 50, 0.92);
     }
 
-    .status {
-      margin-top: 12px;
-      text-align: center;
-      font-size: 13px;
-      color: rgba(101, 11, 50, 0.82);
-    }
+    .status{margin-top:12px;text-align:center;font-size:13px;min-height:18px;width:100%}
 
     .status.ok { color: rgba(14, 96, 45, 0.95); }
     .status.err { color: rgba(150, 20, 40, 0.95); }
@@ -263,11 +242,7 @@
 
   <style>
     /* Fix: keep Send Message button width stable when status text appears */
-    .actions { text-align: center; }
-.grid .actions{grid-column:1/-1;}
-.grid .status{grid-column:1/-1;}
-.grid .actions{margin-top:22px;}
-
+    .actions{display:flex;flex-direction:column;align-items:center;margin-top:28px}
     .actions #submitBtn { display: inline-flex; }
     #statusMsg { margin-top: 14px; }
   </style>
@@ -324,13 +299,12 @@
                 </div>
                 <textarea id="message" name="message" maxlength="1000" placeholder="How can we help?" required></textarea>
               </div>
+            </div>
 
             <div class="actions">
               <button class="btn" type="submit" id="submitBtn">Send Message</button>
             </div>
             <div class="status" id="statusMsg" aria-live="polite"></div>
-            </div>
-
           </form>
         </div>
       </div>
