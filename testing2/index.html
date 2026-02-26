@@ -264,23 +264,13 @@
   <style>
     /* Fix: keep Send Message button width stable when status text appears */
     .actions { text-align: center; }
+.grid .actions{grid-column:1/-1;}
+.grid .status{grid-column:1/-1;}
+.grid .actions{margin-top:22px;}
+
     .actions #submitBtn { display: inline-flex; }
     #statusMsg { margin-top: 14px; }
-    /* CONTACT PAGE: keep submit button size fixed and centered even when status text appears */
-  #contactForm .actions { text-align: center; }
-  #contactForm .btnWrap { display: flex; justify-content: center; }
-  #contactForm .btnWrap .btn {
-    width: 260px;
-    max-width: 100%;
-    flex: 0 0 auto;
-    align-self: center;
-  }
-  #contactForm .status {
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-</style>
+  </style>
 
 </head>
 <body>
@@ -334,12 +324,13 @@
                 </div>
                 <textarea id="message" name="message" maxlength="1000" placeholder="How can we help?" required></textarea>
               </div>
-            </div>
 
             <div class="actions">
               <button class="btn" type="submit" id="submitBtn">Send Message</button>
             </div>
             <div class="status" id="statusMsg" aria-live="polite"></div>
+            </div>
+
           </form>
         </div>
       </div>
