@@ -37,8 +37,8 @@
     gtag("config", "G-JJ3XB37TBM");
   </script>
 
-  <style>
-    :root {
+    /* --- Button stability fix (merged) --- */
+:root {
       --container: 920px;
       --radius-lg: 18px;
       --shadow-soft: 0 10px 30px rgba(0,0,0,0.08);
@@ -266,8 +266,30 @@
     .actions { text-align: center; }
     .actions #submitBtn { display: inline-flex; }
     #statusMsg { margin-top: 14px; }
-  </style>
 
+
+  
+    /* --- Hard lock: keep Send Message button centered and same size after submit --- */
+    form#contactForm .actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    form#contactForm #submitBtn.btn {
+      flex: 0 0 auto;
+      width: 220px !important;
+      max-width: 220px !important;
+      white-space: nowrap;
+    }
+    form#contactForm #statusMsg.status {
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      white-space: normal;
+      overflow-wrap: anywhere;
+    }
+
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
