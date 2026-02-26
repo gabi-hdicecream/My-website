@@ -38,6 +38,10 @@
   </script>
 
   <style>
+/* Keep the Send Message button the same size after submit */
+.actions{display:flex;flex-direction:column;align-items:center;gap:12px;}
+.actions .btn{align-self:center;}
+
     :root {
       --container: 920px;
       --radius-lg: 18px;
@@ -200,27 +204,15 @@
       white-space: nowrap;
     }
 
-    .btn{display:inline-flex !important;align-items:center;justify-content:center;padding:12px 16px;border-radius:var(--radius-btn);text-decoration:none;font-weight:900;border:0;cursor:pointer;user-select:none;font-family:var(--font-body);background:var(--hd-burgundy);color:var(--hd-white);box-shadow:0 10px 22px rgba(0,0,0,0.10);width:220px !important;max-width:90%;flex:0 0 auto !important}
-
-    .btn:hover,
-    .btn:focus {
-      outline: none;
-      background: rgba(101, 11, 50, 0.92);
+    .actions {
+      display: grid;
+      justify-content: center;
+      padding: 18px 16px 18px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      background: rgba(249, 230, 195, 0.14);
     }
 
-    .status{margin-top:12px;text-align:center;font-size:13px;min-height:18px;width:100%}
-
-    .status.ok { color: rgba(14, 96, 45, 0.95); }
-    .status.err { color: rgba(150, 20, 40, 0.95); }
-
-    @media (max-width: 900px) {
-      h1 { font-size: 38px; }
-    }
-
-    @media (max-width: 720px) {
-      .grid { grid-template-columns: 1fr; }
-      h1 { font-size: 34px; }
-      .btn {
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -237,16 +229,87 @@
       box-shadow: 0 10px 22px rgba(0,0,0,0.10);
       min-width: 220px;
     }
+
+    .btn:hover,
+    .btn:focus {
+      outline: none;
+      background: rgba(101, 11, 50, 0.92);
     }
-  
 
-  <style>
-    /* Fix: keep Send Message button width stable when status text appears */
-    .actions{display:flex;flex-direction:column;align-items:center;margin-top:28px}
-    .actions #submitBtn { display: inline-flex; }
-    #statusMsg { margin-top: 14px; }
-  </style>
+    .status {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 13px;
+      color: rgba(101, 11, 50, 0.82);
+    }
 
+    .status.ok { color: rgba(14, 96, 45, 0.95); }
+    .status.err { color: rgba(150, 20, 40, 0.95); }
+
+    @media (max-width: 900px) {
+      h1 { font-size: 38px; }
+    }
+@media (max-width: 720px) {
+  .grid { grid-template-columns: 1fr; }
+  h1 { font-size: 34px; }
+}
+
+/* Contact form fixes: keep button centered and same size, and keep status text from resizing it */
+.actions{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  font-weight: 900;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-body);
+  background: var(--hd-burgundy);
+  color: var(--hd-white);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  min-width: 220px;
+  width: auto;
+}
+
+.btn:hover,
+.btn:focus{
+  text-decoration: none;
+  background: rgba(101, 11, 50, 0.92);
+}
+
+.btn:disabled{
+  opacity: 0.85;
+}
+
+.status-wrap{
+  margin-top: 12px;
+  text-align: center;
+  font-size: 13px;
+  color: rgba(10, 11, 50, 0.70);
+  font-weight: 900;
+  white-space: normal;
+}
+
+.status{
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.status:empty{
+  display: none;
+}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -304,7 +367,9 @@
             <div class="actions">
               <button class="btn" type="submit" id="submitBtn">Send Message</button>
             </div>
-            <div class="status" id="statusMsg" aria-live="polite"></div>
+            <div class="status-wrap" aria-live="polite">
+              <div class="status" id="statusMsg"></div>
+            </div>
           </form>
         </div>
       </div>
