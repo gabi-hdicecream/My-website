@@ -416,13 +416,24 @@ input, select, textarea {
 
 
 
-/* Join form: do NOT reuse .section inside the card (site.css treats .section as a page band). */
-.form-body{padding:26px;background:#fff}
-.form-section{padding:0;margin:0;background:transparent}
-.form-section + .form-section{margin-top:22px;padding-top:22px;border-top:1px solid rgba(0,0,0,0.12)}
-.form-section .section-title,
-.form-section h2{margin:0 0 14px;font-size:22px;line-height:1.25;color:#650B32;font-weight:900}
-
+/* Join form - align buttons like other forms */
+.btnRow{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  margin-top:18px;
+  padding-bottom:18px;
+}
+@media (max-width: 640px){
+  .btnRow{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .btnRow .btn{
+    width:100%;
+  }
+}
 </style>
 </head>
 
@@ -451,7 +462,7 @@ input, select, textarea {
 
             <form id="joinForm" class="form" novalidate>
 
-              <div class="form-section" aria-label="Personal information">
+              <div class="section" aria-label="Personal information">
                 <h2>Personal information</h2>
                 <div class="grid">
                   <div class="field col-6">
@@ -510,7 +521,7 @@ input, select, textarea {
                 </div>
               </div>
 
-              <div class="form-section" aria-label="Position and availability">
+              <div class="section" aria-label="Position and availability">
                 <h2>Position and availability</h2>
 
                 
@@ -547,7 +558,7 @@ input, select, textarea {
                 </div>
 
 
-      <div class="form-section" aria-label="Education">
+      <div class="section" aria-label="Education">
         <h2 class="section-title">Education</h2>
 
         <div class="grid cols-2">
@@ -581,7 +592,7 @@ input, select, textarea {
       </div>
 
 
-      <div class="form-section" aria-label="Work history">
+      <div class="section" aria-label="Work history">
                 <h2>Work history</h2>
                 <div class="help">List your two most recent jobs.</div>
 
@@ -682,7 +693,7 @@ input, select, textarea {
                 </div>
               </div>
 
-              <div class="form-section" aria-label="References">
+              <div class="section" aria-label="References">
                 <h2>References</h2>
                 <div class="help">Provide two references (not relatives).</div>
 
