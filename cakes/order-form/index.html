@@ -168,7 +168,8 @@
     .preview-meta { display: grid; gap: 6px; align-content: center; min-width: 0; }
     .preview-label { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(101, 11, 50, 0.70); }
     .preview-name { font-weight: 900; color: var(--hd-burgundy); font-size: 14px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .preview-links { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .preview-price{margin-top:6px;font-weight:800;color:rgba(101,11,50,0.92);}
+.preview-links { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .preview-link {
       font-size: 12px; font-weight: 900;
       color: var(--hd-burgundy);
@@ -283,6 +284,7 @@
                 <div class="preview-meta">
                   <div class="preview-label">Selected cake</div>
                   <div class="preview-name" id="cakePreviewName">Choose a cake design to preview</div>
+<div class="preview-price" id="cakePreviewPrice" aria-label="Cake price"></div>
                   <div class="preview-links">
                     <a class="preview-link" href="/cakes" target="_blank" rel="noopener noreferrer">View all cakes</a>
                   </div>
@@ -457,7 +459,9 @@
       var specialInstructions = document.getElementById("specialInstructions");
       var charCounter = document.getElementById("charCounter");
       var cakeDesign = document.getElementById("cakeDesign");
-      var cakePreviewImg = document.getElementById("cakePreviewImg");
+      var cakeSize = document.getElementById("cakeSize");
+var cakePreviewPrice = document.getElementById("cakePreviewPrice");
+var cakePreviewImg = document.getElementById("cakePreviewImg");
       var cakePreviewName = document.getElementById("cakePreviewName");
 
       var MIN_HOUR_24 = 11;
@@ -550,6 +554,73 @@
         return map[key] || "/assets/images/placeholders/hd_cakes_01.png";
       }
 
+      
+      var PRICE_TABLES = {
+        standard: {
+          "6x2": 41.95,
+          "6x3": 49.95,
+          "8x2": 59.95,
+          "8x3": 69.95,
+          "10x2": 84.95,
+          "10x3": 99.95
+        },
+        ribbon: {
+          "6x2": 49.95,
+          "6x3": 54.95,
+          "8x2": 69.95,
+          "8x3": 79.95,
+          "10x2": 94.95,
+          "10x3": 114.95
+        }
+      };
+
+      function sizeKeyFrom_(s) {
+        s = String(s || "");
+        var m = s.match(/(\d+)\s*x\s*(\d+)/i);
+        if (!m) return "";
+        return String(m[1]) + "x" + String(m[2]);
+      }
+
+      function minPrice_(table) {
+        var min = null;
+        for (var k in table) {
+          if (!Object.prototype.hasOwnProperty.call(table, k)) continue;
+          var v = Number(table[k]);
+          if (!isFinite(v)) continue;
+          if (min === null || v < min) min = v;
+        }
+        return min;
+      }
+
+      function formatPrice_(n) {
+        n = Number(n);
+        if (!isFinite(n)) return "";
+        return "$" + n.toFixed(2);
+      }
+
+      function getCakeCategory_() {
+        var name = String(cakeDesign && cakeDesign.value ? cakeDesign.value : "").toLowerCase();
+        return name.indexOf("ribbon") !== -1 ? "ribbon" : "standard";
+      }
+
+      function updateCakePrice_() {
+        if (!cakePreviewPrice) return;
+        if (!cakeDesign || !String(cakeDesign.value || "").trim()) {
+          cakePreviewPrice.textContent = "";
+          return;
+        }
+
+        var cat = getCakeCategory_();
+        var table = PRICE_TABLES[cat] || PRICE_TABLES.standard;
+
+        var sizeKey = sizeKeyFrom_(cakeSize && cakeSize.value ? cakeSize.value : "");
+        var price = table[sizeKey];
+
+        if (price == null) price = minPrice_(table);
+
+        cakePreviewPrice.textContent = "Price: " + formatPrice_(price);
+      }
+
       function updateCakePreview() {
         var selected = (cakeDesign.value || "").trim();
         if (!selected) {
@@ -561,7 +632,8 @@
         cakePreviewName.textContent = selected;
         cakePreviewImg.src = getCakeImageUrl(selected);
         cakePreviewImg.alt = selected;
-      }
+              updateCakePrice_();
+}
 
       function fillTimeSelectors() {
         pickupHour.innerHTML = "";
@@ -622,6 +694,8 @@
       messageChoice.addEventListener("change", toggleCustomMessage);
       specialInstructions.addEventListener("input", updateCounter);
       cakeDesign.addEventListener("change", updateCakePreview);
+      cakeSize.addEventListener("change", updateCakePreview);
+
       pickupHour.addEventListener("change", syncHiddenTime);
       pickupMinute.addEventListener("change", syncHiddenTime);
 
