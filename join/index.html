@@ -566,8 +566,8 @@ input, select, textarea {
 <input id="date_available" name="date_available" required="" type="date"/>
 </div>
 <div class="field col-4">
-<label class="req" for="work_eligible">Legally eligible to work in the US?</label>
-<select id="work_eligible" name="work_eligible" required="">
+<label class="req" for="eligible_to_work">Legally eligible to work in the US?</label>
+<select id="eligible_to_work" name="eligible_to_work" required="">
 <option disabled="" selected="" value="">Select</option>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
@@ -586,8 +586,8 @@ input, select, textarea {
 <input autocomplete="organization" id="school_name" name="college_school_name" placeholder="" type="text">
 </input></div>
 <div class="field col-6">
-<label for="graduated">Graduated?</label>
-<select id="graduated" name="graduated">
+<label class="req" for="graduated">Graduated?</label>
+<select id="graduated" name="graduated" required="">
 <option disabled="" selected="" value="">Select</option>
 <option value="Yes">Yes</option>
 <option value="No">No</option>
@@ -836,6 +836,14 @@ var submitBtn = form ? form.querySelector('button[type="submit"]') : null;
 if(form){
   form.addEventListener("submit", function(ev){
     ev.preventDefault();
+
+    // Client-side required-field enforcement
+    if (!form.checkValidity()) {
+      setStatus("err", "Please fill all required fields before submitting.");
+      try { alert("Please fill all required fields before submitting."); } catch(e) {}
+      if (typeof form.reportValidity === "function") { form.reportValidity(); }
+      return;
+    }
 
     setStatus("", "Submitting your application...");
     if(submitBtn){ submitBtn.disabled = true; }
