@@ -417,6 +417,67 @@ input, select, textarea {
       color: #650B32;
       font-weight: 900;
     }
+
+/* --- Join form: prevent inner sections from inheriting page band background --- */
+.form-body .section {
+  background: transparent;
+  padding: 18px 0 0;
+}
+.form-body .section:first-of-type {
+  padding-top: 0;
+}
+.form-body .section h2,
+.form-body .section .section-title {
+  margin: 0 0 12px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--hd-burgundy);
+}
+
+/* --- Join form buttons: match Contact/Cake action band and center buttons --- */
+.btnRow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 16px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  background: rgba(249, 230, 195, 0.14);
+  margin-top: 18px;
+}
+.btnLocal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: var(--radius-btn);
+  text-decoration: none;
+  font-weight: 900;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--font-body);
+  background: rgba(101, 11, 50, 0.10);
+  color: var(--hd-burgundy);
+  min-width: 120px;
+}
+.btnLocal.primary {
+  background: var(--hd-burgundy);
+  color: var(--hd-white);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.10);
+  min-width: 220px;
+}
+.btnLocal:hover,
+.btnLocal:focus {
+  outline: none;
+  background: rgba(101, 11, 50, 0.16);
+}
+.btnLocal.primary:hover,
+.btnLocal.primary:focus {
+  outline: none;
+  background: rgba(101, 11, 50, 0.92);
+}
+
 </style>
 </head>
 <body>
@@ -434,7 +495,7 @@ input, select, textarea {
 <div class="form-card">
 <div class="form-head">
 <div class="form-title">Application Form</div>
-<div class="form-note">All fields required unless marked optional.</div>
+<div class="form-note">All fields with * are required.</div>
 </div>
 <div class="form-body">
 <div aria-live="polite" class="status" id="formStatus" role="status"></div>
@@ -735,18 +796,20 @@ input, select, textarea {
           })(capEls[i]);
         }
 
-        var phone = document.getElementById("phone");
-        if (phone){
-          phone.addEventListener("input", function(){
-            var cur = phone.value;
-            var formatted = formatPhoneValue(cur);
-            phone.value = formatted;
-          });
-          phone.addEventListener("blur", function(){
-            phone.value = formatPhoneValue(phone.value);
-          });
+        
+        // Phone mask for all tel inputs
+        var telEls = document.querySelectorAll('input[type="tel"]');
+        for (var t = 0; t < telEls.length; t++) {
+          (function(el){
+            el.addEventListener("input", function(){
+              el.value = formatPhoneValue(el.value);
+            });
+            el.addEventListener("blur", function(){
+              el.value = formatPhoneValue(el.value);
+            });
+          })(telEls[t]);
         }
-      }
+}
 
       bindCapsAndMasks();
 
