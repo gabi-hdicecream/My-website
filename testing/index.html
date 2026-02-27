@@ -114,7 +114,10 @@
     .inline-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
     .counter { font-size: 12px; color: rgba(101, 11, 50, 0.70); font-weight: 800; }
     .actions {
-      display: grid; justify-content: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
       padding: 18px 16px 18px;
       border-top: 1px solid rgba(0,0,0,0.08);
       background: rgba(249, 230, 195, 0.14);
@@ -131,7 +134,14 @@
       min-width: 220px;
     }
     .btn:hover, .btn:focus { outline: none; background: rgba(101, 11, 50, 0.92); }
-    .status { margin-top: 12px; text-align: center; font-size: 13px; color: rgba(101, 11, 50, 0.80); }
+    .status {
+      margin-top: 0;
+      text-align: center;
+      font-size: 13px;
+      line-height: 1.4;
+      color: rgba(101, 11, 50, 0.80);
+      max-width: 520px;
+    }
     .status.ok { color: rgba(14, 96, 45, 0.95); }
     .status.err { color: rgba(150, 20, 40, 0.95); }
     .design-row { display: grid; grid-template-columns: 1fr; gap: 10px; }
@@ -158,8 +168,8 @@
     .preview-meta { display: grid; gap: 6px; align-content: center; min-width: 0; }
     .preview-label { font-size: 11px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(101, 11, 50, 0.70); }
     .preview-name { font-weight: 900; color: var(--hd-burgundy); font-size: 14px; line-height: 1.25; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .preview-price { margin-top: 4px; font-weight: 900; color: var(--hd-burgundy); font-size: 14px; }
-    .preview-links { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .preview-price{margin-top:6px;font-weight:800;color:rgba(101,11,50,0.92);}
+.preview-links { display: inline-flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .preview-link {
       font-size: 12px; font-weight: 900;
       color: var(--hd-burgundy);
@@ -274,7 +284,7 @@
                 <div class="preview-meta">
                   <div class="preview-label">Selected cake</div>
                   <div class="preview-name" id="cakePreviewName">Choose a cake design to preview</div>
-              <div class="preview-price" id="cakePrice"></div>
+<div class="preview-price" id="cakePreviewPrice" aria-label="Cake price"></div>
                   <div class="preview-links">
                     <a class="preview-link" href="/cakes" target="_blank" rel="noopener noreferrer">View all cakes</a>
                   </div>
@@ -449,7 +459,9 @@
       var specialInstructions = document.getElementById("specialInstructions");
       var charCounter = document.getElementById("charCounter");
       var cakeDesign = document.getElementById("cakeDesign");
-      var cakePreviewImg = document.getElementById("cakePreviewImg");
+      var cakeSize = document.getElementById("cakeSize");
+var cakePreviewPrice = document.getElementById("cakePreviewPrice");
+var cakePreviewImg = document.getElementById("cakePreviewImg");
       var cakePreviewName = document.getElementById("cakePreviewName");
 
       var MIN_HOUR_24 = 11;
@@ -543,10 +555,8 @@
       }
 
       
-      var cakePriceEl = document.getElementById("cakePrice");
-
-      var CAKE_PRICES = {
-        other: {
+      var PRICE_TABLES = {
+        standard: {
           "6x2": 41.95,
           "6x3": 49.95,
           "8x2": 59.95,
@@ -564,54 +574,54 @@
         }
       };
 
-      function cakeCategory_(cakeName) {
-        var s = String(cakeName || "").toLowerCase();
-        return s.indexOf("ribbon") !== -1 ? "ribbon" : "other";
-      }
-
-      function parseSizeKey_(label) {
-        var s = String(label || "");
-        var m = s.match(/(\d+)\s*x\s*(\d+)/i) || s.match(/(\d+)x(\d+)/i);
+      function sizeKeyFrom_(s) {
+        s = String(s || "");
+        var m = s.match(/(\d+)\s*x\s*(\d+)/i);
         if (!m) return "";
-        return m[1] + "x" + m[2];
+        return String(m[1]) + "x" + String(m[2]);
       }
 
-      function money_(n) {
-        if (typeof n !== "number" || !isFinite(n)) return "";
+      function minPrice_(table) {
+        var min = null;
+        for (var k in table) {
+          if (!Object.prototype.hasOwnProperty.call(table, k)) continue;
+          var v = Number(table[k]);
+          if (!isFinite(v)) continue;
+          if (min === null || v < min) min = v;
+        }
+        return min;
+      }
+
+      function formatPrice_(n) {
+        n = Number(n);
+        if (!isFinite(n)) return "";
         return "$" + n.toFixed(2);
       }
 
-      function updateCakePrice_(mode) {
-        if (!cakePriceEl) return;
+      function getCakeCategory_() {
+        var name = String(cakeDesign && cakeDesign.value ? cakeDesign.value : "").toLowerCase();
+        return name.indexOf("ribbon") !== -1 ? "ribbon" : "standard";
+      }
 
-        var cakeName = cakeDesignSelect.value || "";
-        if (!cakeName || cakeName === "Select a cake design") {
-          cakePriceEl.textContent = "";
+      function updateCakePrice_() {
+        if (!cakePreviewPrice) return;
+        if (!cakeDesign || !String(cakeDesign.value || "").trim()) {
+          cakePreviewPrice.textContent = "";
           return;
         }
 
-        var category = cakeCategory_(cakeName);
-        var table = CAKE_PRICES[category] || CAKE_PRICES.other;
+        var cat = getCakeCategory_();
+        var table = PRICE_TABLES[cat] || PRICE_TABLES.standard;
 
-        var sizeKey = parseSizeKey_(cakeSizeSelect.value || "");
-        var hasSize = !!sizeKey;
-
-        if (!sizeKey) sizeKey = "6x2"; // default to lowest-price size
-
+        var sizeKey = sizeKeyFrom_(cakeSize && cakeSize.value ? cakeSize.value : "");
         var price = table[sizeKey];
 
-        if (typeof price === "number") {
-          if (mode === "designChange" && !hasSize) {
-            cakePriceEl.textContent = "From " + money_(table["6x2"]);
-          } else {
-            cakePriceEl.textContent = "Price: " + money_(price);
-          }
-        } else {
-          cakePriceEl.textContent = "";
-        }
+        if (price == null) price = minPrice_(table);
+
+        cakePreviewPrice.textContent = "Price: " + formatPrice_(price);
       }
 
-function updateCakePreview() {
+      function updateCakePreview() {
         var selected = (cakeDesign.value || "").trim();
         if (!selected) {
           cakePreviewName.textContent = "Choose a cake design to preview";
@@ -622,7 +632,8 @@ function updateCakePreview() {
         cakePreviewName.textContent = selected;
         cakePreviewImg.src = getCakeImageUrl(selected);
         cakePreviewImg.alt = selected;
-      }
+              updateCakePrice_();
+}
 
       function fillTimeSelectors() {
         pickupHour.innerHTML = "";
@@ -676,7 +687,6 @@ function updateCakePreview() {
       toggleCustomMessage();
       updateCounter();
       updateCakePreview();
-      updateCakePrice_("init");
 
       firstName.addEventListener("blur", function () { firstName.value = capFirst(firstName.value); });
       lastName.addEventListener("blur", function () { lastName.value = capFirst(lastName.value); });
