@@ -478,19 +478,45 @@ var cakePreviewImg = document.getElementById("cakePreviewImg");
       function formatISODate(d) { return d.getFullYear() + "-" + pad2(d.getMonth() + 1) + "-" + pad2(d.getDate()); }
       function hourLabel(h24) { var ampm = (h24 >= 12) ? "PM" : "AM"; var h12 = h24 % 12; if (h12 === 0) h12 = 12; return h12 + " " + ampm; }
 
+      function getEarliestPickupDate() {
+        return addDays(new Date(), PROCESSING_DAYS);
+      }
+
       function setStatus(text, kind) {
         statusMsg.textContent = text || "";
         statusMsg.className = "status" + (kind ? " " + kind : "");
       }
 
       function setEarliestPickup() {
-        var today = new Date();
-        var earliest = addDays(today, PROCESSING_DAYS);
+        var earliest = getEarliestPickupDate();
         var iso = formatISODate(earliest);
         pickupDate.min = iso;
-        if (!pickupDate.value) pickupDate.value = iso;
+        if (!pickupDate.value || pickupDate.value < iso) pickupDate.value = iso;
         earliestPickupText.textContent = formatLongDate(earliest);
         minDateHint.textContent = "Earliest pickup date: " + iso;
+      }
+
+      function validatePickupDate(showStatus) {
+        // Recalculate here so a form left open overnight cannot use yesterday's minimum.
+        var earliest = getEarliestPickupDate();
+        var earliestIso = formatISODate(earliest);
+        var selectedIso = String(pickupDate.value || "");
+        pickupDate.min = earliestIso;
+
+        if (!selectedIso || selectedIso < earliestIso) {
+          pickupDate.value = earliestIso;
+          if (showStatus) {
+            setStatus(
+              "Pickup requires 2 days for processing. The earliest available date is " +
+              formatLongDate(earliest) + ".",
+              "err"
+            );
+            pickupDate.focus();
+          }
+          return false;
+        }
+
+        return true;
       }
 
       function fillFlavorSelect(selectEl) {
@@ -698,6 +724,9 @@ var cakePreviewImg = document.getElementById("cakePreviewImg");
 
       pickupHour.addEventListener("change", syncHiddenTime);
       pickupMinute.addEventListener("change", syncHiddenTime);
+      pickupDate.addEventListener("change", function () {
+        if (validatePickupDate(true)) setStatus("", "");
+      });
 
       var submitFrame = document.getElementById("submitFrame");
       var pending = false;
@@ -739,6 +768,8 @@ var cakePreviewImg = document.getElementById("cakePreviewImg");
             return;
           }
         }
+
+        if (!validatePickupDate(true)) return;
 
         pending = true;
         if (pendingTimer) clearTimeout(pendingTimer);
